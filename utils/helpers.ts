@@ -9,13 +9,14 @@ export const formatCurrency = (amount: number): string => {
 export const triggerCashDrawer = () => {
   const drawerContainer = document.getElementById('cash-drawer-print-container');
   if (drawerContainer) {
-    // Un seul espace insécable suffit pour déclencher le travail d'impression et ouvrir le tiroir.
-    // Le CSS d'impression associé garantit que seul ce div est visible et prend un minimum de place.
+    // A single non-breaking space is enough to trigger the print job and open the drawer.
+    // The associated print CSS ensures only this div is visible and takes minimal space.
     drawerContainer.innerHTML = '<p style="margin:0; padding:0; font-size:1px;">&nbsp;</p>';
     window.print();
-    // Effacer le contenu après le déclenchement de la boîte de dialogue d'impression pour éviter d'interférer avec les impressions de reçus.
+    // Clear the content after the print dialog is triggered to avoid interfering with receipt prints.
+    // This timeout runs after the print dialog is closed. A small delay is sufficient.
     setTimeout(() => {
         if(drawerContainer) drawerContainer.innerHTML = '';
-    }, 500);
+    }, 10);
   }
 };
