@@ -1,8 +1,8 @@
 
 import React from 'react';
 // Fix: Corrected import path for types.
-import { ShiftReport, Language } from '../../types';
-import { formatCurrency } from '../../utils/helpers';
+import { ShiftReport, Language } from '../types';
+import { formatCurrency } from '../utils/helpers';
 import { CheckCircleIcon, XMarkIcon } from './icons';
 
 interface WaiterShiftSummaryModalProps {
